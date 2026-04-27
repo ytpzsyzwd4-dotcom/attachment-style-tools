@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>愛着スタイル診断 | あなたの恋愛パターンを知る20の質問</title>
+<meta name="description" content="20の質問であなたの愛着スタイルを診断。安定型・不安型・回避型・恐れ回避型の4タイプから、あなたの恋愛における関わり方の傾向がわかります。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #6b1f2e;
+    --burgundy-deep: #4a1520;
+    --burgundy-light: #8b3a4a;
+    --blush: #f4d4d0;
+    --blush-soft: #faeae8;
+    --gold: #c9a961;
+    --gold-light: #e0c98a;
+    --cream: #faf6f1;
+    --ink: #2a1a1d;
+    --ink-soft: #5a4548;
+    --line: rgba(107, 31, 46, 0.15);
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: ‘Noto Serif JP’, serif;
+background: var(–cream);
+color: var(–ink);
+line-height: 1.8;
+font-weight: 400;
+-webkit-font-smoothing: antialiased;
+overflow-x: hidden;
+}
+
+/* 背景の装飾 */
+body::before {
+content: ‘’;
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background:
+radial-gradient(ellipse at top right, rgba(201, 169, 97, 0.08), transparent 50%),
+radial-gradient(ellipse at bottom left, rgba(107, 31, 46, 0.06), transparent 50%);
+pointer-events: none;
+z-index: 0;
+}
+
+.container {
+max-width: 720px;
+margin: 0 auto;
+padding: 60px 24px;
+position: relative;
+z-index: 1;
+}
+
+/* === スタート画面 === */
+.start-screen {
+text-align: center;
+animation: fadeIn 1s ease-out;
+}
+
+.ornament {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+color: var(–gold);
+font-size: 1.1rem;
+letter-spacing: 0.3em;
+margin-bottom: 24px;
+}
+
+.ornament::before, .ornament::after {
+content: ‘—’;
+margin: 0 16px;
+color: var(–gold-light);
+}
+
+h1 {
+font-family: ‘Noto Serif JP’, serif;
+font-weight: 600;
+font-size: clamp(2rem, 5vw, 2.8rem);
+color: var(–burgundy-deep);
+line-height: 1.4;
+margin-bottom: 8px;
+letter-spacing: 0.02em;
+}
+
+.subtitle {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+color: var(–burgundy-light);
+font-size: 1.3rem;
+margin-bottom: 48px;
+letter-spacing: 0.05em;
+}
+
+.lead {
+font-size: 1.05rem;
+color: var(–ink-soft);
+margin-bottom: 16px;
+line-height: 2;
+}
+
+.info-box {
+background: white;
+border: 1px solid var(–line);
+border-radius: 4px;
+padding: 32px;
+margin: 48px 0;
+text-align: left;
+position: relative;
+}
+
+.info-box::before {
+content: ‘’;
+position: absolute;
+top: -1px; left: -1px; right: -1px;
+height: 3px;
+background: linear-gradient(90deg, var(–gold), var(–burgundy), var(–gold));
+}
+
+.info-box h3 {
+font-size: 1.1rem;
+color: var(–burgundy-deep);
+margin-bottom: 16px;
+font-weight: 600;
+}
+
+.info-box ul {
+list-style: none;
+}
+
+.info-box li {
+padding: 6px 0 6px 24px;
+position: relative;
+color: var(–ink-soft);
+font-size: 0.95rem;
+}
+
+.info-box li::before {
+content: ‘◆’;
+position: absolute;
+left: 0;
+color: var(–gold);
+font-size: 0.7rem;
+top: 12px;
+}
+
+/* === ボタン === */
+.btn {
+display: inline-block;
+padding: 18px 48px;
+background: var(–burgundy-deep);
+color: white;
+border: none;
+font-family: ‘Noto Serif JP’, serif;
+font-size: 1rem;
+font-weight: 500;
+letter-spacing: 0.15em;
+cursor: pointer;
+transition: all 0.4s ease;
+position: relative;
+text-decoration: none;
+overflow: hidden;
+}
+
+.btn::before {
+content: ‘’;
+position: absolute;
+top: 0; left: -100%;
+width: 100%; height: 100%;
+background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.3), transparent);
+transition: left 0.6s ease;
+}
+
+.btn:hover {
+background: var(–burgundy);
+transform: translateY(-2px);
+box-shadow: 0 12px 30px rgba(107, 31, 46, 0.25);
+}
+
+.btn:hover::before { left: 100%; }
+
+.btn-gold {
+background: var(–gold);
+color: var(–burgundy-deep);
+}
+
+.btn-gold:hover {
+background: var(–gold-light);
+}
+
+.btn-line {
+background: #06C755;
+color: white;
+}
+
+.btn-line:hover { background: #05a847; }
+
+/* === 質問画面 === */
+.question-screen {
+display: none;
+animation: fadeIn 0.6s ease-out;
+}
+
+.progress-area {
+margin-bottom: 48px;
+}
+
+.progress-text {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+margin-bottom: 12px;
+font-family: ‘Cormorant Garamond’, serif;
+color: var(–burgundy-light);
+letter-spacing: 0.1em;
+}
+
+.progress-text .current {
+font-size: 1.6rem;
+font-weight: 500;
+color: var(–burgundy-deep);
+}
+
+.progress-text .total { font-size: 0.95rem; }
+
+.progress-bar {
+height: 1px;
+background: var(–line);
+position: relative;
+overflow: hidden;
+}
+
+.progress-fill {
+position: absolute;
+top: 0; left: 0; height: 100%;
+background: linear-gradient(90deg, var(–gold), var(–burgundy));
+transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.question-card {
+background: white;
+padding: 56px 40px;
+border-radius: 4px;
+box-shadow: 0 20px 60px rgba(74, 21, 32, 0.08);
+border: 1px solid var(–line);
+position: relative;
+}
+
+.question-card::before {
+content: ‘’;
+position: absolute;
+top: 24px; left: 50%;
+transform: translateX(-50%);
+width: 40px; height: 1px;
+background: var(–gold);
+}
+
+.question-text {
+font-size: 1.25rem;
+line-height: 1.9;
+color: var(–ink);
+text-align: center;
+margin: 32px 0 48px;
+font-weight: 500;
+min-height: 80px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.options {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.option {
+padding: 18px 24px;
+background: var(–cream);
+border: 1px solid var(–line);
+border-radius: 2px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-family: inherit;
+font-size: 0.98rem;
+color: var(–ink-soft);
+text-align: left;
+position: relative;
+padding-left: 56px;
+}
+
+.option::before {
+content: ‘’;
+position: absolute;
+left: 24px;
+top: 50%;
+transform: translateY(-50%);
+width: 16px; height: 16px;
+border: 1px solid var(–burgundy-light);
+border-radius: 50%;
+transition: all 0.3s ease;
+}
+
+.option:hover {
+background: white;
+border-color: var(–burgundy-light);
+color: var(–ink);
+transform: translateX(4px);
+}
+
+.option:hover::before {
+background: var(–blush);
+}
+
+.option.selected {
+background: white;
+border-color: var(–burgundy);
+color: var(–burgundy-deep);
+}
+
+.option.selected::before {
+background: var(–burgundy);
+border-color: var(–burgundy);
+box-shadow: inset 0 0 0 3px white;
+}
+
+/* === 結果画面 === */
+.result-screen {
+display: none;
+animation: fadeIn 1.2s ease-out;
+}
+
+.result-header {
+text-align: center;
+margin-bottom: 56px;
+}
+
+.result-label {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+color: var(–gold);
+letter-spacing: 0.3em;
+font-size: 1rem;
+margin-bottom: 16px;
+}
+
+.result-type {
+font-size: clamp(2.2rem, 6vw, 3.2rem);
+color: var(–burgundy-deep);
+font-weight: 600;
+line-height: 1.3;
+margin-bottom: 16px;
+}
+
+.result-en {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+color: var(–burgundy-light);
+font-size: 1.4rem;
+letter-spacing: 0.1em;
+}
+
+.result-card {
+background: white;
+padding: 48px 40px;
+border-radius: 4px;
+box-shadow: 0 20px 60px rgba(74, 21, 32, 0.08);
+margin-bottom: 32px;
+border: 1px solid var(–line);
+position: relative;
+overflow: hidden;
+}
+
+.result-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+background: linear-gradient(90deg, var(–gold), var(–burgundy), var(–gold));
+}
+
+.result-card h3 {
+font-size: 1.15rem;
+color: var(–burgundy-deep);
+margin-bottom: 20px;
+font-weight: 600;
+padding-bottom: 12px;
+border-bottom: 1px solid var(–line);
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.result-card h3::before {
+content: ‘’;
+width: 24px;
+height: 1px;
+background: var(–gold);
+}
+
+.result-card p {
+color: var(–ink-soft);
+line-height: 2;
+font-size: 1rem;
+}
+
+.result-card + .result-card {
+margin-top: 24px;
+}
+
+.traits {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+gap: 12px;
+margin-top: 16px;
+}
+
+.trait {
+background: var(–blush-soft);
+color: var(–burgundy-deep);
+padding: 10px 16px;
+text-align: center;
+font-size: 0.9rem;
+border-radius: 2px;
+border: 1px solid var(–blush);
+}
+
+/* === CTA === */
+.cta-section {
+margin-top: 72px;
+text-align: center;
+}
+
+.cta-divider {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 48px 0;
+color: var(–gold);
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+letter-spacing: 0.3em;
+}
+
+.cta-divider::before, .cta-divider::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold-light), transparent);
+margin: 0 24px;
+}
+
+.cta-card {
+background: linear-gradient(135deg, white 0%, var(–blush-soft) 100%);
+padding: 56px 40px;
+border: 1px solid var(–blush);
+border-radius: 4px;
+margin-bottom: 24px;
+position: relative;
+overflow: hidden;
+}
+
+.cta-card::before {
+content: ‘’;
+position: absolute;
+top: -50px; right: -50px;
+width: 200px; height: 200px;
+background: radial-gradient(circle, rgba(201, 169, 97, 0.15), transparent 70%);
+pointer-events: none;
+}
+
+.cta-tag {
+display: inline-block;
+padding: 6px 16px;
+background: var(–burgundy-deep);
+color: var(–gold-light);
+font-size: 0.8rem;
+letter-spacing: 0.2em;
+margin-bottom: 20px;
+font-family: ‘Cormorant Garamond’, serif;
+}
+
+.cta-card h3 {
+font-size: 1.6rem;
+color: var(–burgundy-deep);
+margin-bottom: 16px;
+font-weight: 600;
+line-height: 1.5;
+}
+
+.cta-card p {
+color: var(–ink-soft);
+margin-bottom: 28px;
+line-height: 1.9;
+}
+
+.cta-feature {
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin: 24px 0 32px;
+text-align: left;
+max-width: 400px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.cta-feature li {
+list-style: none;
+padding: 8px 0 8px 28px;
+position: relative;
+color: var(–ink-soft);
+font-size: 0.95rem;
+}
+
+.cta-feature li::before {
+content: ‘✦’;
+position: absolute;
+left: 0;
+color: var(–gold);
+}
+
+.restart-link {
+display: inline-block;
+margin-top: 48px;
+color: var(–burgundy-light);
+text-decoration: none;
+font-size: 0.9rem;
+border-bottom: 1px solid var(–burgundy-light);
+padding-bottom: 2px;
+transition: all 0.3s ease;
+}
+
+.restart-link:hover {
+color: var(–burgundy-deep);
+border-color: var(–burgundy-deep);
+}
+
+/* === アニメーション === */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* === レスポンシブ === */
+@media (max-width: 600px) {
+.container { padding: 40px 20px; }
+.question-card { padding: 40px 24px; }
+.result-card { padding: 36px 24px; }
+.cta-card { padding: 40px 24px; }
+.ornament::before, .ornament::after { margin: 0 8px; }
+.info-box { padding: 24px; }
+.btn { padding: 16px 36px; font-size: 0.95rem; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- スタート画面 -->
+
+  <div class="start-screen" id="start">
+    <div class="ornament">ATTACHMENT STYLE</div>
+    <h1>愛着スタイル診断</h1>
+    <p class="subtitle">あなたの恋愛のパターンを、20の質問から</p>
+
+```
+<p class="lead">
+  なぜ、いつも同じパターンで恋愛がうまくいかないのか。<br>
+  その答えは「愛着スタイル」にあります。
+</p>
+<p class="lead" style="font-size: 0.95rem;">
+  幼少期に形成された愛着の傾向は、大人になっても恋愛関係に影響し続けます。<br>
+  自分のパターンを知ることが、変化への第一歩です。
+</p>
+
+<div class="info-box">
+  <h3>この診断でわかること</h3>
+  <ul>
+    <li>あなたの愛着スタイル（4タイプから判定）</li>
+    <li>恋愛における無意識のパターン</li>
+    <li>関係を深めるためのヒント</li>
+  </ul>
+</div>
+
+<button class="btn" onclick="startQuiz()">診断をはじめる</button>
+<p style="margin-top: 16px; font-size: 0.85rem; color: var(--ink-soft);">所要時間：約3分</p>
+```
+
+  </div>
+
+  <!-- 質問画面 -->
+
+  <div class="question-screen" id="question">
+    <div class="progress-area">
+      <div class="progress-text">
+        <span><span class="current" id="current">1</span> <span class="total">/ 20</span></span>
+        <span id="progress-percent">5%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill" style="width: 5%;"></div>
+      </div>
+    </div>
+
+```
+<div class="question-card">
+  <div class="question-text" id="question-text">質問を読み込み中...</div>
+  <div class="options" id="options"></div>
+</div>
+```
+
+  </div>
+
+  <!-- 結果画面 -->
+
+  <div class="result-screen" id="result">
+    <div class="result-header">
+      <div class="result-label">YOUR ATTACHMENT STYLE</div>
+      <div class="result-type" id="result-type">あなたのタイプ</div>
+      <div class="result-en" id="result-en">Type Name</div>
+    </div>
+
+```
+<div class="result-card">
+  <h3>このタイプの特徴</h3>
+  <p id="result-description"></p>
+  <div class="traits" id="result-traits"></div>
+</div>
+
+<div class="result-card">
+  <h3>恋愛における傾向</h3>
+  <p id="result-love"></p>
+</div>
+
+<div class="result-card">
+  <h3>関係を深めるためのヒント</h3>
+  <p id="result-advice"></p>
+</div>
+
+<!-- CTA セクション -->
+<div class="cta-section">
+  <div class="cta-divider">FOR YOU</div>
+
+  <!-- Zoomカウンセリング CTA -->
+  <div class="cta-card">
+    <span class="cta-tag">PERSONAL SESSION</span>
+    <h3>あなただけのパターンを、<br>一緒に紐解きませんか</h3>
+    <p>
+      診断結果はあくまで入り口です。<br>
+      あなた自身の物語と向き合うことで、本当の変化が始まります。
+    </p>
+    <ul class="cta-feature">
+      <li>60分間のオンライン1対1セッション</li>
+      <li>あなたの恋愛パターンを丁寧にヒアリング</li>
+      <li>具体的な次の一歩を一緒に設計</li>
+    </ul>
+    <a href="#" class="btn" id="zoom-cta">Zoomカウンセリングを予約する</a>
+    <p style="margin-top: 20px; font-size: 0.85rem; color: var(--ink-soft);">¥20,000 / 60分</p>
+  </div>
+
+  <!-- LINE CTA -->
+  <div class="cta-card" style="background: linear-gradient(135deg, white 0%, #f0f9f0 100%); border-color: rgba(6, 199, 85, 0.2);">
+    <span class="cta-tag" style="background: #06C755; color: white;">FREE</span>
+    <h3>LINEで、<br>あなたのタイプ別の深掘り解説をお届け</h3>
+    <p>
+      登録者限定で、4タイプそれぞれの<br>
+      詳しい解説と日常で使える小さなワークをお送りします。
+    </p>
+    <ul class="cta-feature">
+      <li>タイプ別の詳細レポート（無料）</li>
+      <li>関係改善のためのワーク</li>
+      <li>カウンセリング優先案内</li>
+    </ul>
+    <a href="#" class="btn btn-line" id="line-cta">LINEで友だち追加</a>
+  </div>
+
+  <a href="#" class="restart-link" onclick="location.reload()">もう一度診断する</a>
+</div>
+```
+
+  </div>
+
+</div>
+
+<script>
+// === 質問データ（20問） ===
+// 各質問は4タイプそれぞれにスコアを加算
+// secure: 安定型 / anxious: 不安型 / avoidant: 回避型 / fearful: 恐れ・回避型
+const questions = [
+  {
+    text: "パートナーから返信が遅いと、悪いことが起きたのではと不安になる",
+    options: [
+      { label: "とてもあてはまる", scores: { anxious: 3, fearful: 2 } },
+      { label: "ややあてはまる", scores: { anxious: 2, fearful: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1, avoidant: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, avoidant: 2 } }
+    ]
+  },
+  {
+    text: "好きな人と距離が近づくと、なぜか息苦しくなる",
+    options: [
+      { label: "とてもあてはまる", scores: { avoidant: 3, fearful: 2 } },
+      { label: "ややあてはまる", scores: { avoidant: 2, fearful: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, anxious: 1 } }
+    ]
+  },
+  {
+    text: "自分の弱さや本音を、相手に素直に見せることができる",
+    options: [
+      { label: "とてもあてはまる", scores: { secure: 3 } },
+      { label: "ややあてはまる", scores: { secure: 2, anxious: 1 } },
+      { label: "あまりあてはまらない", scores: { avoidant: 2, fearful: 1 } },
+      { label: "まったくあてはまらない", scores: { avoidant: 3, fearful: 2 } }
+    ]
+  },
+  {
+    text: "恋愛では「嫌われたらどうしよう」という不安が頭から離れない",
+    options: [
+      { label: "とてもあてはまる", scores: { anxious: 3, fearful: 2 } },
+      { label: "ややあてはまる", scores: { anxious: 2 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, avoidant: 2 } }
+    ]
+  },
+  {
+    text: "誰かに頼ることに、強い抵抗を感じる",
+    options: [
+      { label: "とてもあてはまる", scores: { avoidant: 3, fearful: 2 } },
+      { label: "ややあてはまる", scores: { avoidant: 2, fearful: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1, anxious: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, anxious: 2 } }
+    ]
+  },
+  {
+    text: "パートナーの言動に、過剰に意味を読み取ってしまうことがある",
+    options: [
+      { label: "とてもあてはまる", scores: { anxious: 3, fearful: 2 } },
+      { label: "ややあてはまる", scores: { anxious: 2, fearful: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, avoidant: 1 } }
+    ]
+  },
+  {
+    text: "ひとりの時間がないと、自分を保てない感覚がある",
+    options: [
+      { label: "とてもあてはまる", scores: { avoidant: 3 } },
+      { label: "ややあてはまる", scores: { avoidant: 2, fearful: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 1, anxious: 2 } }
+    ]
+  },
+  {
+    text: "相手に愛されている実感を、安定して持つことができる",
+    options: [
+      { label: "とてもあてはまる", scores: { secure: 3 } },
+      { label: "ややあてはまる", scores: { secure: 2 } },
+      { label: "あまりあてはまらない", scores: { anxious: 2, avoidant: 1 } },
+      { label: "まったくあてはまらない", scores: { anxious: 3, fearful: 2 } }
+    ]
+  },
+  {
+    text: "人を好きになると、相手のことで頭がいっぱいになる",
+    options: [
+      { label: "とてもあてはまる", scores: { anxious: 3 } },
+      { label: "ややあてはまる", scores: { anxious: 2, secure: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1, avoidant: 1 } },
+      { label: "まったくあてはまらない", scores: { avoidant: 3 } }
+    ]
+  },
+  {
+    text: "愛されたいけれど、本当に愛されるのは怖いと感じる",
+    options: [
+      { label: "とてもあてはまる", scores: { fearful: 3 } },
+      { label: "ややあてはまる", scores: { fearful: 2, anxious: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2 } }
+    ]
+  },
+  {
+    text: "意見が違っても、落ち着いて話し合える",
+    options: [
+      { label: "とてもあてはまる", scores: { secure: 3 } },
+      { label: "ややあてはまる", scores: { secure: 2 } },
+      { label: "あまりあてはまらない", scores: { anxious: 2, avoidant: 1 } },
+      { label: "まったくあてはまらない", scores: { anxious: 2, fearful: 2 } }
+    ]
+  },
+  {
+    text: "本当の自分を見せたら、相手は離れていくと思う",
+    options: [
+      { label: "とてもあてはまる", scores: { fearful: 3, anxious: 1 } },
+      { label: "ややあてはまる", scores: { fearful: 2, anxious: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2 } }
+    ]
+  },
+  {
+    text: "感情が動くと、それを誰かに話したくなる",
+    options: [
+      { label: "とてもあてはまる", scores: { secure: 2, anxious: 1 } },
+      { label: "ややあてはまる", scores: { secure: 2 } },
+      { label: "あまりあてはまらない", scores: { avoidant: 2 } },
+      { label: "まったくあてはまらない", scores: { avoidant: 3, fearful: 1 } }
+    ]
+  },
+  {
+    text: "見捨てられることへの恐怖が、心の奥にある",
+    options: [
+      { label: "とてもあてはまる", scores: { anxious: 3, fearful: 2 } },
+      { label: "ややあてはまる", scores: { anxious: 2, fearful: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, avoidant: 1 } }
+    ]
+  },
+  {
+    text: "深い関係になりそうになると、自分から距離を取ってしまう",
+    options: [
+      { label: "とてもあてはまる", scores: { avoidant: 3, fearful: 2 } },
+      { label: "ややあてはまる", scores: { avoidant: 2, fearful: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, anxious: 1 } }
+    ]
+  },
+  {
+    text: "自分は愛されるに値する人間だと思える",
+    options: [
+      { label: "とてもあてはまる", scores: { secure: 3 } },
+      { label: "ややあてはまる", scores: { secure: 2 } },
+      { label: "あまりあてはまらない", scores: { anxious: 2, fearful: 1 } },
+      { label: "まったくあてはまらない", scores: { fearful: 3, anxious: 2 } }
+    ]
+  },
+  {
+    text: "パートナーに対して、近づきたい気持ちと逃げたい気持ちが同時にある",
+    options: [
+      { label: "とてもあてはまる", scores: { fearful: 3 } },
+      { label: "ややあてはまる", scores: { fearful: 2, anxious: 1 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2 } }
+    ]
+  },
+  {
+    text: "感情的になっている自分を、相手に見せるのが苦手",
+    options: [
+      { label: "とてもあてはまる", scores: { avoidant: 3, fearful: 1 } },
+      { label: "ややあてはまる", scores: { avoidant: 2 } },
+      { label: "あまりあてはまらない", scores: { secure: 1, anxious: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, anxious: 2 } }
+    ]
+  },
+  {
+    text: "相手の機嫌を、自分の責任のように感じてしまう",
+    options: [
+      { label: "とてもあてはまる", scores: { anxious: 3, fearful: 1 } },
+      { label: "ややあてはまる", scores: { anxious: 2 } },
+      { label: "あまりあてはまらない", scores: { secure: 1 } },
+      { label: "まったくあてはまらない", scores: { secure: 2, avoidant: 1 } }
+    ]
+  },
+  {
+    text: "誰かと深くつながることに、心の底から安心を感じられる",
+    options: [
+      { label: "とてもあてはまる", scores: { secure: 3 } },
+      { label: "ややあてはまる", scores: { secure: 2 } },
+      { label: "あまりあてはまらない", scores: { anxious: 1, avoidant: 1, fearful: 1 } },
+      { label: "まったくあてはまらない", scores: { fearful: 3, avoidant: 2 } }
+    ]
+  }
+];
+
+// === タイプの結果データ ===
+const types = {
+  secure: {
+    name: "安定型",
+    en: "Secure Attachment",
+    description: "あなたは「安定型」の愛着スタイルを持っています。自分にも他者にも肯定的な信頼感があり、親密さと自立のバランスを自然にとることができるタイプです。感情の波に飲み込まれにくく、関係の中で自分らしくいられる強さがあります。",
+    love: "恋愛において、相手を信頼し、適切な距離感を保ちながら関係を築けます。意見の違いも対話で乗り越えられ、相手の弱さも自分の弱さも受け入れる柔軟さを持っています。安定した関係を長く続けやすいタイプです。",
+    advice: "あなた自身が安定しているからこそ、不安定な愛着スタイルを持つ相手に出会ったとき、無意識に「相手を安心させる役割」を担いすぎることがあります。自分の感情も大切にしながら、相手のパターンに巻き込まれない境界線を意識してみてください。",
+    traits: ["信頼", "対話力", "境界線", "柔軟性"]
+  },
+  anxious: {
+    name: "不安型",
+    en: "Anxious Attachment",
+    description: "あなたは「不安型」の愛着スタイルを持っています。深く愛したい気持ちと、見捨てられることへの強い恐れが共存しているタイプです。相手の小さな反応に敏感で、関係の中で過剰に頑張ってしまう傾向があります。",
+    love: "好きになると相手のことで頭がいっぱいになり、返信や態度の変化に一喜一憂しがちです。「もっと愛されたい」という渇望が、ときに相手にプレッシャーを与えてしまうこともあります。けれど、その情熱はあなたの大きな魅力でもあります。",
+    advice: "相手の反応に揺さぶられる前に、まず「自分の感情の原点」に戻る習慣をつけてみてください。不安が湧いた瞬間、それは過去の記憶が再生されているサインかもしれません。自分自身を安心させる力を育てることが、健やかな関係への鍵になります。",
+    traits: ["共感力", "情熱", "繊細さ", "深い愛情"]
+  },
+  avoidant: {
+    name: "回避型",
+    en: "Avoidant Attachment",
+    description: "あなたは「回避型」の愛着スタイルを持っています。自立心が強く、ひとりの時間を大切にするタイプです。深く頼ること、感情をさらけ出すことに無意識の抵抗があり、距離を保つことで自分を守ってきた歴史があります。",
+    love: "関係が深まると息苦しさを感じ、無意識に距離をとる行動に出やすい傾向があります。相手から見ると「冷たい」「何を考えているかわからない」と映ることも。けれど、それはあなたが愛していないからではなく、近づくこと自体が怖いから、というケースが多いのです。",
+    advice: "「ひとりでいられる強さ」と「誰かと共にいる柔らかさ」は両立できます。少しずつ、安全だと感じられる相手に小さな本音を渡す練習をしてみてください。距離を取ることは悪いことではない。けれど、その選択を「自覚的に」することが、関係を変えていきます。",
+    traits: ["自立", "冷静さ", "独立心", "観察力"]
+  },
+  fearful: {
+    name: "恐れ・回避型",
+    en: "Fearful-Avoidant",
+    description: "あなたは「恐れ・回避型」の愛着スタイルを持っています。愛されたい気持ちと、愛されることへの恐れが同時に存在する、もっとも複雑なタイプです。近づきたいのに怖い、離れたいのに寂しい——そんな矛盾した感情の中で揺れ続けてきたのではないでしょうか。",
+    love: "深い愛を求めながら、いざ近づくと逃げたくなる。相手を試すような行動をとってしまったり、自分から関係を壊してしまったりすることもあります。それは過去に「愛されること＝傷つくこと」だった経験が、今もあなたを守ろうとしているサインです。",
+    advice: "あなたの矛盾は、弱さではなく、生き延びるための知恵でした。まずはその自分を否定しないことから始めてください。一気に変わろうとせず、「安全に話せる場」で少しずつ感情を言葉にしていく。専門家との対話は、このタイプにとって特に大きな助けになります。",
+    traits: ["繊細さ", "深い洞察", "矛盾の共存", "生き延びる力"]
+  }
+};
+
+// === 状態管理 ===
+let currentQuestion = 0;
+const scores = { secure: 0, anxious: 0, avoidant: 0, fearful: 0 };
+let selectedOption = null;
+
+// === 画面遷移 ===
+function startQuiz() {
+  document.getElementById('start').style.display = 'none';
+  document.getElementById('question').style.display = 'block';
+  showQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showQuestion() {
+  const q = questions[currentQuestion];
+  document.getElementById('question-text').textContent = q.text;
+  document.getElementById('current').textContent = currentQuestion + 1;
+
+  const percent = Math.round(((currentQuestion + 1) / questions.length) * 100);
+  document.getElementById('progress-fill').style.width = percent + '%';
+  document.getElementById('progress-percent').textContent = percent + '%';
+
+  const optionsEl = document.getElementById('options');
+  optionsEl.innerHTML = '';
+  selectedOption = null;
+
+  q.options.forEach((opt, idx) => {
+    const button = document.createElement('button');
+    button.className = 'option';
+    button.textContent = opt.label;
+    button.onclick = () => selectOption(button, opt, idx);
+    optionsEl.appendChild(button);
+  });
+}
+
+function selectOption(buttonEl, option, index) {
+  // 選択を視覚的に表示
+  document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
+  buttonEl.classList.add('selected');
+  selectedOption = option;
+
+  // スコア加算
+  Object.keys(option.scores).forEach(key => {
+    scores[key] += option.scores[key];
+  });
+
+  // 少し待って次の質問へ
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      showQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      showResult();
+    }
+  }, 400);
+}
+
+// === 結果表示 ===
+function showResult() {
+  // 最高スコアのタイプを判定
+  let topType = 'secure';
+  let topScore = -1;
+  Object.keys(scores).forEach(key => {
+    if (scores[key] > topScore) {
+      topScore = scores[key];
+      topType = key;
+    }
+  });
+
+  const result = types[topType];
+
+  document.getElementById('question').style.display = 'none';
+  document.getElementById('result').style.display = 'block';
+
+  document.getElementById('result-type').textContent = result.name;
+  document.getElementById('result-en').textContent = result.en;
+  document.getElementById('result-description').textContent = result.description;
+  document.getElementById('result-love').textContent = result.love;
+  document.getElementById('result-advice').textContent = result.advice;
+
+  const traitsEl = document.getElementById('result-traits');
+  traitsEl.innerHTML = '';
+  result.traits.forEach(trait => {
+    const div = document.createElement('div');
+    div.className = 'trait';
+    div.textContent = trait;
+    traitsEl.appendChild(div);
+  });
+
+  // CTAリンクをタイプ別にカスタマイズ可能（必要に応じて）
+  // document.getElementById('zoom-cta').href = "https://your-zoom-booking-url.com";
+  // document.getElementById('line-cta').href = "https://lin.ee/your-line-url";
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
